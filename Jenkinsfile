@@ -58,11 +58,7 @@ pipeline{
         stage("Publish over ssh"){
             steps{ 
                 script{
-                    sshPublisher(publishers: [sshPublisherDesc(configName: 'Ansible', transfers: 
-                    [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /opt/k8s/create-simple-devops-image.yml', 
-                    execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', 
-                    remoteDirectory: '//opt//k8s', remoteDirectorySDF: false, removePrefix: 'webapp/target', sourceFiles: 'webapp/target/*.war')], 
-                    usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])                    
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'Ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /opt/k8s/create-simple-devops-image.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//opt//k8s', remoteDirectorySDF: false, removePrefix: 'webapp/target', sourceFiles: 'webapp/target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                 }
             }                   
         }
